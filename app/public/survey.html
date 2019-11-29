@@ -9,8 +9,82 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>  
 </head>
-<body>
-    <div class="jumbotron">
-    </div>
-</body>
+<body class="container">
+        <div class="jumbotron">
+            <div class="h1">Survey Questions</div>
+            <hr>
+            <div class="h2">Only a couple of questions away!</div>
+        </div>
+        <div class="card">
+                <div class="card-header font-weight-bold">
+                    Personal Information
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="nameInput">Name</label>
+                            <input type="text" class="form-control" id="nameInput" aria-describedby="nameHelp" placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="passwordInput">Password</label>
+                            <input type="password" class="form-control" id="passwordInput">
+                        </div>
+                        <div class="form-group">
+                                <label for="ageInput">Age</label>
+                                <input type="number" class="form-control" id="ageInput">
+                        </div>
+                        <div class="form-group">
+                                <label for="factInput">Random Fact!</label>
+                                <input type="text" class="form-control" id="factInput">
+                        </div>
+                        <hr>
+                        <div class="card-title font-italic">
+                                Survey Questions
+                        </div>
+                        <div class="form-group">
+                                <label for="question-1">Question 1</label>
+                                <select class="form-control" id="question-1">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option selected="selected">3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                        </div>
+                        <div class="form-group">
+                                <label for="question-2">Question 2</label>
+                                <select class="form-control" id="question-2">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option selected="selected">3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                        </div>
+                        <div class="form-group">
+                                <label for="question-3">Question 3</label>
+                                <select class="form-control" id="question-3">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option selected="selected">3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+                    </form>
+                    <hr>
+                </div>
+              </div>
+
+        <footer class="footer">
+            <div class="container">
+                <p>
+                    <a href="/api/friends">API Friend List</a>
+                    | 
+                    <a href="https://github.com/JoaquinValle/Friend-Finder">Github Repo</a>
+                </p>
+            </div>
+        </footer>
+    </body>
 </html>
