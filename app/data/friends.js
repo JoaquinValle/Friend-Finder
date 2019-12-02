@@ -1,8 +1,3 @@
-// 5. You should save your application's data inside of `app/data/friends.js` 
-// as an array of objects. Each of these objects should roughly follow the format below.
-
-
-// Pasar todos los objetos en dataArr
 let dataArr = [
   {
     name: "John",
@@ -16,12 +11,8 @@ let dataArr = [
   }
 ]
 
-module.exports= dataArr
-
-// Pasar el objeto de la persona que esta buscando
 let sampleScores = [1, 5, 1]
 
-// otro for para comparar con todos 
 let matchScoreArr = []
 
 dataArr.forEach(person => {
@@ -37,3 +28,5 @@ for (let i in matchScoreArr) {
     dataArr[i].match = matchScoreArr[i]
 }
 console.log(dataArr)
+
+module.exports= dataArr
