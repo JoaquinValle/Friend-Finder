@@ -72,6 +72,75 @@
                                     <option>5 - Strongly Agree</option>
                                 </select>
                         </div>
+                        <div class="form-group">
+                                <label for="question-4">Question 4</label>
+                                <select class="form-control" id="question-4">
+                                    <option>1 - Strongly Disagree</option>
+                                    <option>2 - Alightly Disagree</option>
+                                    <option selected="selected">3 - Neutral</option>
+                                    <option>4 - Slightly Agree</option>
+                                    <option>5 - Strongly Agree</option>
+                                </select>
+                        </div>
+                        <div class="form-group">
+                                <label for="question-5">Question 5</label>
+                                <select class="form-control" id="question-5">
+                                    <option>1 - Strongly Disagree</option>
+                                    <option>2 - Alightly Disagree</option>
+                                    <option selected="selected">3 - Neutral</option>
+                                    <option>4 - Slightly Agree</option>
+                                    <option>5 - Strongly Agree</option>
+                                </select>
+                        </div>
+                        <div class="form-group">
+                                <label for="question-6">Question 6</label>
+                                <select class="form-control" id="question-6">
+                                    <option>1 - Strongly Disagree</option>
+                                    <option>2 - Alightly Disagree</option>
+                                    <option selected="selected">3 - Neutral</option>
+                                    <option>4 - Slightly Agree</option>
+                                    <option>5 - Strongly Agree</option>
+                                </select>
+                        <div class="form-group">
+                                <label for="question-7">Question 7</label>
+                                <select class="form-control" id="question-7">
+                                    <option>1 - Strongly Disagree</option>
+                                    <option>2 - Alightly Disagree</option>
+                                    <option selected="selected">3 - Neutral</option>
+                                    <option>4 - Slightly Agree</option>
+                                    <option>5 - Strongly Agree</option>
+                                </select>
+                        </div>
+                        <div class="form-group">
+                                <label for="question-8">Question 8</label>
+                                <select class="form-control" id="question-8">
+                                    <option>1 - Strongly Disagree</option>
+                                    <option>2 - Alightly Disagree</option>
+                                    <option selected="selected">3 - Neutral</option>
+                                    <option>4 - Slightly Agree</option>
+                                    <option>5 - Strongly Agree</option>
+                                </select>
+                        </div>
+                        <div class="form-group">
+                                <label for="question-9">Question 9</label>
+                                <select class="form-control" id="question-9">
+                                    <option>1 - Strongly Disagree</option>
+                                    <option>2 - Alightly Disagree</option>
+                                    <option selected="selected">3 - Neutral</option>
+                                    <option>4 - Slightly Agree</option>
+                                    <option>5 - Strongly Agree</option>
+                                </select>
+                        </div>
+                        <div class="form-group">
+                                <label for="question-10">Question 10</label>
+                                <select class="form-control" id="question-10">
+                                    <option>1 - Strongly Disagree</option>
+                                    <option>2 - Alightly Disagree</option>
+                                    <option selected="selected">3 - Neutral</option>
+                                    <option>4 - Slightly Agree</option>
+                                    <option>5 - Strongly Agree</option>
+                                </select>
+                        </div>
                         <button type="submit" class="btn btn-primary btn-lg btn-block send">Submit</button>
                     </form>
                     <hr>
@@ -101,11 +170,23 @@
                 parseInt($("#question-1").val().substring(0,1)),
                 parseInt($("#question-2").val().substring(0,1)),
                 parseInt($("#question-3").val().substring(0,1)),
+                parseInt($("#question-4").val().substring(0,1)),
+                parseInt($("#question-5").val().substring(0,1)),
+                parseInt($("#question-6").val().substring(0,1)),
+                parseInt($("#question-7").val().substring(0,1)),
+                parseInt($("#question-8").val().substring(0,1)),
+                parseInt($("#question-9").val().substring(0,1)),
+                parseInt($("#question-10").val().substring(0,1))
             ],
             age: $("#ageInput").val().trim(),
             fact: $("#factInput").val().trim()
           }
-          console.log(newPerson)
+        console.log(newPerson)
         $.post("/api/friends", newPerson)
+
+        $("#name-input").val("")
+        $("#age-input").val("")
+        $("#photo-input").val("")
+        $("#fact-input").val("")
     })
 </script>
