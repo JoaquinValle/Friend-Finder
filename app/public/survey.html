@@ -7,6 +7,7 @@
     <title>Survey</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>  
 </head>
 <body class="container">
@@ -26,12 +27,12 @@
                             <input type="text" class="form-control" id="nameInput" aria-describedby="nameHelp" placeholder="John Doe">
                         </div>
                         <div class="form-group">
-                            <label for="passwordInput">Password</label>
-                            <input type="password" class="form-control" id="passwordInput">
-                        </div>
-                        <div class="form-group">
                                 <label for="ageInput">Age</label>
                                 <input type="number" class="form-control" id="ageInput">
+                        </div>
+                        <div class="form-group">
+                                <label for="photoInput">Photo Link</label>
+                                <input type="url" class="form-control" id="photoInput">
                         </div>
                         <div class="form-group">
                                 <label for="factInput">Random Fact!</label>
@@ -53,7 +54,7 @@
                         </div>
                         <div class="form-group">
                                 <label for="question-2">Question 2</label>
-                                <select class="form-control" id="question-1">
+                                <select class="form-control" id="question-2">
                                     <option>1 - Strongly Disagree</option>
                                     <option>2 - Alightly Disagree</option>
                                     <option selected="selected">3 - Neutral</option>
@@ -63,7 +64,7 @@
                         </div>
                         <div class="form-group">
                                 <label for="question-3">Question 3</label>
-                                <select class="form-control" id="question-1">
+                                <select class="form-control" id="question-3">
                                     <option>1 - Strongly Disagree</option>
                                     <option>2 - Alightly Disagree</option>
                                     <option selected="selected">3 - Neutral</option>
@@ -71,7 +72,7 @@
                                     <option>5 - Strongly Agree</option>
                                 </select>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-lg btn-block ">Submit</button>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block send">Submit</button>
                     </form>
                     <hr>
                 </div>
@@ -88,3 +89,23 @@
         </footer>
     </body>
 </html>
+
+<script>
+    $(".send").on("click", (event) => {
+        event.preventDefault()
+        let newPerson = 
+          {            
+            name: $("#nameInput").val().trim(),
+            photo: $("#photoInput").val().trim(),
+            scores: [
+                parseInt($("#question-1").val().substring(0,1)),
+                parseInt($("#question-2").val().substring(0,1)),
+                parseInt($("#question-3").val().substring(0,1)),
+            ],
+            age: $("#ageInput").val().trim(),
+            fact: $("#factInput").val().trim()
+          }
+          console.log(newPerson)
+        $.post("/api/friends", newPerson)
+    })
+</script>

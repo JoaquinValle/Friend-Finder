@@ -2,12 +2,16 @@ let dataArr = [
   {
     name: "John",
     photo: "link",
-    scores: [4, 3, 2]
+    scores: [4, 3, 2],
+    age: 18,
+    fact: "I enjoy walks on the beach"
   },
   {
     name: "James",
     photo: "link",
-    scores: [1, 5, 2]
+    scores: [1, 5, 2],
+    age: 25,
+    fact: "I don't like to eat chocolate"
   }
 ]
 
