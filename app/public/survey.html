@@ -219,8 +219,22 @@
             console.log(data)
             data.forEach(person => {
                 if (person.match) {
-                    $("#match-data").append(`Your match is ${person.name}. \nThis person is ${person.age} years old. \nYou can find a link to a picture here: 
-                    ${person.photo}. \nThis person's random fact is: ${person.fact}.`)
+                    let div1 = $("<div>")
+                    div1.text(`Your match is ${person.name}`)
+                    $("#match-data").append(div1)
+
+                    let img3 = $("<img>")
+                    $(img3).attr("src", person.photo)
+                    console.log(img3)
+                    $("#match-data").append(img3)
+
+                    let div2 = $("<div>")
+                    div2.text(`${person.name} is ${person.age} years old.`)
+                    $("#match-data").append(div2)
+
+                    let div4 = $("<div>")
+                    div4.text(`${person.name}'s random fact is: ${person.fact}`)
+                    $("#match-data").append(div4)
                 }
             })
         })

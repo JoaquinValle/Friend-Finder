@@ -22,7 +22,7 @@ let dataArr = [
   },
   {
     name: "Jill",
-    photo: "www.easyphoto2963.com",
+    photo: "https://www.fillmurray.com/200/200",
     scores: [2, 3, 3, 3, 3, 5, 1, 4, 5, 3],
     age: 28,
     fact: "I play squash"
