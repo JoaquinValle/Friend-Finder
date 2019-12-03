@@ -16,31 +16,59 @@ module.exports = (app) => {
         dataArr.forEach((person) => {
 
             person.match = false
-            // let factScore = person.fact.length
-            // factScoreArr.push(factScore)
+            let factScore = person.fact.length
+            //factScoreArr.push(factScore)
+            person.factScore = parseInt(factScore)
 
             let matchScore = 0
             for (let score in person.scores) {
                 matchScore += Math.abs(parseInt(person.scores[score]) - parseInt(currentPerson.scores[score])) 
             }
             matchScoreArr.push(matchScore)
-            console.log(`Match Score for ${person.name} is ${matchScore}`)
+            console.log(`Match Score for ${person.name} is ${matchScore}; Fact Score is ${factScore}`)
         })
         console.log("----------------------------------------------------")
-        // Fact Score is ${factScore}
+        
         let findDuplicates = (arr) => arr.filter((item, index) => arr.indexOf(item) != index)
         let duplicates = [...new Set(findDuplicates(matchScoreArr))]
         console.log("Duplicates: " + [...new Set(findDuplicates(matchScoreArr))])
 
+
+
+
         if (Math.min(...matchScoreArr) === Math.min(...duplicates)) {
-            console.log("minimum duplicates exist")
-            console.log(dataArr[matchScoreArr.indexOf(Math.min(...duplicates))])
+            console.log("\x1b[31m","Minimum Duplicates Exist","\x1b[0m")
+            let indexes = []
+            getAllIndexes(matchScoreArr, Math.min(...duplicates))
+            function getAllIndexes(arr, val) {
+                for (let i = 0; i < arr.length; i++) {
+                    if (arr[i] === val) {
+                        indexes.push(parseInt(i))
+                    } 
+                }
+                console.log(`Duped indexes: ${indexes}`)
+            }
+            let finalCheck = []
+            let factScoreArr = []
+            for (let i of indexes) {
+                factScoreArr.push(parseInt(dataArr[i].factScore))
+            }
+            console.log(`Fact Scores: ${factScoreArr}`)
+            let maxFact = factScoreArr.indexOf(Math.max(...factScoreArr))
+            console.log("Max Fact Score: " + maxFact)
+            let bestMatch = dataArr[indexes[parseInt(maxFact)]]
+            console.log("Best Match:")
+            console.log(bestMatch)
+            console.log("----------------------------------------------------")
+            bestMatch.match = true
         }
-        var bestMatch = dataArr[matchScoreArr.indexOf(Math.min(...matchScoreArr))]
-        console.log("Best Match: ")
-        console.log(bestMatch)
-        console.log("----------------------------------------------------")
-        bestMatch.match = true
+        else {
+            let bestMatch = dataArr[matchScoreArr.indexOf(Math.min(...matchScoreArr))]
+            console.log("Best Match: ")
+            console.log(bestMatch)
+            console.log("----------------------------------------------------")
+            bestMatch.match = true
+        }
         dataArr.push(req.body)
     })
 }
