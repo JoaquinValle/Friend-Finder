@@ -19,9 +19,11 @@ module.exports = (app) => {
             console.log(`Match Score for ${person.name} is ${matchScore}`)
         })
 
-        var bestMatch = matchScoreArr.indexOf(Math.min(...matchScoreArr))
+        var bestMatch = dataArr[matchScoreArr.indexOf(Math.min(...matchScoreArr))]
         console.log("Best Match: ")
-        console.log(dataArr[bestMatch])
+        console.log(bestMatch)
+        bestMatch.match = true
         dataArr.push(req.body)
     })
 }
+

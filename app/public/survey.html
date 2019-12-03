@@ -189,5 +189,24 @@
         $("#age-input").val("")
         $("#photo-input").val("")
         $("#fact-input").val("")
+
+        alert("Item set")
+
+
+        $.ajax({
+        url: "/api/friends",
+        method: "GET"
+        }).then((data) => {
+            console.log(data)
+            data.forEach(person => {
+                if (person.match) {
+                    alert(`We Found a match for you!!!! \n
+                    Your match is ${person.name}. \n
+                    This person is ${person.age} years old. \n
+                    You can find a link to a picture here: ${person.photo} \n
+                    This person's random fact is: ${person.fact}.`)
+                }
+            })
+        })
     })
 </script>
