@@ -184,7 +184,7 @@
           }
         console.log(newPerson)
         $.post("/api/friends", newPerson)
-
+        
         $("#name-input").val("")
         $("#age-input").val("")
         $("#photo-input").val("")
@@ -200,10 +200,11 @@
             console.log(data)
             data.forEach(person => {
                 if (person.match) {
-                    alert(`We Found a match for you!!!! \n
-                    Your match is ${person.name}. \n
-                    This person is ${person.age} years old. \n
-                    You can find a link to a picture here: ${person.photo} \n
+                    alert(`We Found a match for you!!!! 
+                    Your match is ${person.name}. 
+                    This person is ${person.age} years old.
+                    You can find a link to a picture here: 
+                    ${person.photo}.
                     This person's random fact is: ${person.fact}.`)
                 }
             })
