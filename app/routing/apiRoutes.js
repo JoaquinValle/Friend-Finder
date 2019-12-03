@@ -6,7 +6,6 @@ module.exports = (app) => {
     })
 
     app.post("/api/friends", (req, res) => {
-
         let currentPerson = req.body
         console.log(currentPerson)
         let matchScoreArr = []
