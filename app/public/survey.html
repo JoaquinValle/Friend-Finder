@@ -183,22 +183,29 @@
 <script>
     $(".send").on("click", (event) => {
         event.preventDefault()
+        let answerArr = []
+        
+        for (let i = 1; i < 11; i++) {
+            answerArr.push(parseInt($("#question-" + i).val().substring(0,1)))
+        }
+
         let newPerson = 
           {            
             name: $("#nameInput").val().trim(),
             photo: $("#photoInput").val().trim(),
-            scores: [
-                parseInt($("#question-1").val().substring(0,1)),
-                parseInt($("#question-2").val().substring(0,1)),
-                parseInt($("#question-3").val().substring(0,1)),
-                parseInt($("#question-4").val().substring(0,1)),
-                parseInt($("#question-5").val().substring(0,1)),
-                parseInt($("#question-6").val().substring(0,1)),
-                parseInt($("#question-7").val().substring(0,1)),
-                parseInt($("#question-8").val().substring(0,1)),
-                parseInt($("#question-9").val().substring(0,1)),
-                parseInt($("#question-10").val().substring(0,1))
-            ],
+            scores: answerArr,
+
+                // parseInt($("#question-1").val().substring(0,1)),
+                // parseInt($("#question-2").val().substring(0,1)),
+                // parseInt($("#question-3").val().substring(0,1)),
+                // parseInt($("#question-4").val().substring(0,1)),
+                // parseInt($("#question-5").val().substring(0,1)),
+                // parseInt($("#question-6").val().substring(0,1)),
+                // parseInt($("#question-7").val().substring(0,1)),
+                // parseInt($("#question-8").val().substring(0,1)),
+                // parseInt($("#question-9").val().substring(0,1)),
+                // parseInt($("#question-10").val().substring(0,1))
+            
             age: $("#ageInput").val().trim(),
             fact: $("#factInput").val().trim()
           }
