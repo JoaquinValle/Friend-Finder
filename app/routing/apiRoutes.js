@@ -11,15 +11,11 @@ module.exports = (app) => {
         console.log(currentPerson)
         console.log("----------------------------------------------------")
         let matchScoreArr = []
-        //let factScoreArr = []
 
         dataArr.forEach((person) => {
-
             person.match = false
             let factScore = person.fact.length
-            //factScoreArr.push(factScore)
             person.factScore = parseInt(factScore)
-
             let matchScore = 0
             for (let score in person.scores) {
                 matchScore += Math.abs(parseInt(person.scores[score]) - parseInt(currentPerson.scores[score])) 
@@ -33,9 +29,6 @@ module.exports = (app) => {
         let duplicates = [...new Set(findDuplicates(matchScoreArr))]
         console.log("Duplicates: " + [...new Set(findDuplicates(matchScoreArr))])
 
-
-
-
         if (Math.min(...matchScoreArr) === Math.min(...duplicates)) {
             console.log("\x1b[31m","Minimum Duplicates Exist","\x1b[0m")
             let indexes = []
@@ -48,7 +41,6 @@ module.exports = (app) => {
                 }
                 console.log(`Duped indexes: ${indexes}`)
             }
-            let finalCheck = []
             let factScoreArr = []
             for (let i of indexes) {
                 factScoreArr.push(parseInt(dataArr[i].factScore))
@@ -72,4 +64,3 @@ module.exports = (app) => {
         dataArr.push(req.body)
     })
 }
-
